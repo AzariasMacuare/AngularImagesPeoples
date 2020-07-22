@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mt-4" *ngFor="let people of peopleService.allPeoples">
+            <div class="card">
+                <div class="card-header bg-dark text-white d-flex justify-content-between">
+                    <strong>{{people.name}}</strong> 
+                    <button class="bg-dark">
+                        <a class="ml-auto" [routerLink]="['/edit/', people.id]"><i class="material-icons text-primary">edit</i></a>
+                    </button>
+                </div>
+                <div class="card-body bg-dark text-white d-flex justify-content-between">
+                    <strong>{{people.office}}</strong>
+                    <button class="bg-dark" (click)="deletePeople(people.id)">
+                        <i class="material-icons text-primary">delete</i>
+                    </button>
+                </div>
+                <div class="card-footer">
+                    <img [src]="people.image" class="card-img-top">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card card-body mt-3">
+                <form autocomplete="off">
+                    <div class="form-group">
+                        <input class="form-control" name="name" [(ngModel)]="people.name" type="text" placeholder="Insert you name" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="office" [(ngModel)]="people.office" type="text" placeholder="Insert you office">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="image" [(ngModel)]="people.image" rows="2" placeholder="Inser you url of the image"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button (click)="true ? updatePeople() : savePeople()" class="btn btn-outline-success btn-block">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="col-md-5">
+            <div class="card card-body">
+                <strong><h3>{{people.name}}</h3></strong>
+                <h5>{{people.office}}</h5>
+                <h6>{{people.created_at | date: 'yyyy-MM-dd'}}</h6>
+                <img class="card-img-top" [src]="people.image != ''? people.image : '/assets/notFound.png'">
+            </div>
+        </div>
+    </div>
+</div>
